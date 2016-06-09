@@ -12,6 +12,7 @@ RUN apt-get update && \
         gcc \
         git \
         make \
+        libssl-dev \
         libtool-bin \
         vim-tiny
 
