@@ -3,6 +3,7 @@
 .PHONY: all build run
 
 DOCKER_CMD ?= docker
+IPMITOOL_BUILD_DIR ?= $(PWD)/build
 
 all: build
 
@@ -15,5 +16,5 @@ run:
 		-it \
 		--rm \
 		-e GIT_CHECKOUT=true \
-		-v $(PWD)/build:/build \
+		-v $(IPMITOOL_BUILD_DIR):/build \
 		ipmitool:latest /bin/bash build-ipmitool.sh
