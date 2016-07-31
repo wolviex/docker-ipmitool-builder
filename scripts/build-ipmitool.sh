@@ -5,7 +5,7 @@ set -u
 TMP_DIR=${TMP_DIR:-'/build'}
 NEW_PWD="${TMP_DIR}/ipmitool"
 rm -rf "${NEW_PWD}"
-cp -r "./ipmitool-source" "${NEW_PWD}"
+cp -r "/ipmitool-source" "${NEW_PWD}"
 cd "${NEW_PWD}"
 sh bootstrap || printf "Bootstrap RC: %i\n" $?
 ./configure --enable-intf-dummy || printf "./configure RC: %i\n" $?
