@@ -14,13 +14,12 @@ RUN apt-get update && \
         make \
         libssl-dev \
         libtool-bin \
-        vim-tiny
+        vim-tiny \
+        curl \
+        ipmitool
 
-VOLUME ["/build", "/ipmitool-source", "/patches"]
+COPY scripts/* /usr/local/bin/
 
-COPY scripts/run.sh /run.sh
-COPY scripts/build-ipmitool.sh /usr/local/bin/build-ipmitool.sh
+RUN chmod +x /run.sh /usr/local/bin/*
 
-RUN chmod +x /run.sh /usr/local/bin/build-ipmitool.sh
-
-ENTRYPOINT ["/run.sh"]
+ENTRYPOINT ["/usr/local/bin/run.sh"]
