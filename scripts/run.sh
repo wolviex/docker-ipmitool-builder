@@ -1,8 +1,5 @@
 #!/bin/sh
 
-#Get enterprise numbers
-curl https://www.iana.org/assignments/enterprise-numbers.txt -o /usr/share/misc/enterprise-numbers.txt
-
 if [ $# -eq 0 ]
   then
     echo "No arguments supplied"
