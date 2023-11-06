@@ -1,6 +1,6 @@
 FROM debian:stable-slim
 
-MAINTAINER Zdenek Styblik <stybla@turnovfree.net>
+MAINTAINER Joe M <joe@manifold.rocks>
 
 RUN apt-get update && \
     apt-get upgrade -y && \
