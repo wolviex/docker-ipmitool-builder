@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:stable-slim
 
 MAINTAINER Zdenek Styblik <stybla@turnovfree.net>
 
