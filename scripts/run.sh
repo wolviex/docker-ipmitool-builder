@@ -1,10 +1,12 @@
 #!/bin/sh
 
-GIT_CHECKOUT=${GIT_CHECKOUT:-}
+#Get enterprise numbers
+curl https://www.iana.org/assignments/enterprise-numbers.txt -o /usr/share/misc/enterprise-numbers.txt
 
-if [ -n "${GIT_CHECKOUT}" ]; then
-    printf "Cloning IPMI tool sources from git\n"
-    git clone http://git.code.sf.net/p/ipmitool/source ipmitool-source
+if [ $# -eq 0 ]
+  then
+    echo "No arguments supplied"
+    ipmitool -I lanplus -H $IPMI_HOSTNAME -U root -E sdr list full
+else
+    exec $@
 fi
-
-exec $@
