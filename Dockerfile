@@ -18,8 +18,9 @@ RUN apt-get update && \
         curl \
         ipmitool
 
-COPY scripts/* /usr/local/bin/
+RUN curl https://www.iana.org/assignments/enterprise-numbers.txt -o /usr/share/misc/enterprise-numbers.txt
 
+COPY scripts/* /usr/local/bin/
 RUN chmod +x /usr/local/bin/*
 
 ENTRYPOINT ["/usr/local/bin/run.sh"]
