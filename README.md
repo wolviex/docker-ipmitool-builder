@@ -1,19 +1,12 @@
 # Docker IPMI tool build
 
-Docker Image with pre-set environment for building IPMI tool.
+Docker Image with IPMI tool.
 
 ## Environment variables
 
-* `GIT_CHECKOUT` - checkout IPMI tool from sf.net git. Any value means `true`.
+* `IPMI_HOSTNAME` - default hostname to connect
+* `IPMI_PASSWORD` - default password to connect 
 
 ## Usage
 
-Run `% make;` to build Docker Image.
-
-Run `% make run;` to run Docker Container.
-
-## Volumes
-
-* `/build` - is where build can be grabbed
-* `/ipmitool-source` - where you can mount checked out IPMI tool source
-* `/patches` - is meant for exchanging files with the Host
+run container with command arguments. Or add script to /scripts dir and run with command arguments, etc.
