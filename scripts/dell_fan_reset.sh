@@ -21,3 +21,7 @@ ipmitool -I lanplus -H $IPMI_HOSTNAME -U root -E raw 0x30 0x30 0x02 0x06 0x20
 sleep 5
 
 ipmitool -I lanplus -H $IPMI_HOSTNAME -U root -E sdr list full
+
+#Hang with a READ /wait for input to keep the container alive. This will allow for restart policy
+echo "Press enter to continue"
+read _discard_input
