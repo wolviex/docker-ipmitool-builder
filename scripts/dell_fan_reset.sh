@@ -1,4 +1,6 @@
 #! /bin/sh
+echo "Sleeping 3 to allow network to come up"
+sleep 3
 
 echo "Turn off auto fan control (Set Manual)"
 ipmitool -I lanplus -H $IPMI_HOSTNAME -U root -E raw 0x30 0x30 0x01 0x00
@@ -23,5 +25,5 @@ sleep 5
 ipmitool -I lanplus -H $IPMI_HOSTNAME -U root -E sdr list full
 
 #Hang with a READ /wait for input to keep the container alive. This will allow for restart policy
-echo "Press enter to continue"
-read _discard_input
+echo "tailing /dev/null to keep-alive"
+tail -f /dev/null
